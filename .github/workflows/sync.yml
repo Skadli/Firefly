@@ -1,0 +1,38 @@
+name: Upstream Sync
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 每天 UTC 时间 0点（北京时间早8点）运行一次
+  workflow_dispatch: # 允许手动点按钮触发
+
+jobs:
+  sync_latest_from_upstream:
+    name: Sync latest commits from upstream repo
+    runs-on: ubuntu-latest
+    if: ${{ github.event.repository.fork }} # 只有是 Fork 仓库才运行
+
+    steps:
+      # 1. 检出代码
+      - name: Checkout target repo
+        uses: actions/checkout@v3
+
+      # 2. 同步上游变更
+      - name: Sync upstream changes
+        id: sync
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+        with:
+          upstream_sync_repo: https://github.com/CuteLeaf/Firefly.git
+          upstream_sync_branch: master
+          target_sync_branch: master  
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }} # 自动生成的 Token，无需修改
+          test_mode: false
+
+      # 3. 如果有更新，打印日志
+      - name: Sync check
+        if: failure()
+        run: |
+          echo "由于存在冲突，自动同步失败。请手动合并。"
+          exit 1
