@@ -1,7 +1,7 @@
 
 <div class="flex flex-col items-center justify-center gap-2 text-sm text-neutral-500 dark:text-neutral-400">
     <div class="flex items-center gap-1">
-        <span>&copy; 2023 - <script>document.write(new Date().getFullYear())</script></span>
+        <span>&copy; 2023 - <span id="copyright-year"></span></span>
         <span class="font-bold text-neutral-700 dark:text-neutral-200">skad</span>
         <span>|</span>
         <span class="animate-pulse text-red-500">❤</span>
@@ -9,9 +9,24 @@
     </div>
 
     <div class="text-xs opacity-80">
-        Powered by <a href="https://astro.build/" target="_blank" class="hover:text-blue-500 transition-colors">Astro</a> 
-        & 
+        Powered by <a href="https://astro.build/" target="_blank" class="hover:text-blue-500 transition-colors">Astro</a>
+        &
         <a href="https://github.com/CuteLeaf/Firefly" target="_blank" class="hover:text-pink-500 transition-colors">Firefly</a>
     </div>
-    
+
 </div>
+
+<script>
+(function() {
+    function updateCopyrightYear() {
+        const yearElement = document.getElementById('copyright-year');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+    }
+    // 初始加载时更新
+    updateCopyrightYear();
+    // Swup 页面切换后更新
+    document.addEventListener('swup:page:view', updateCopyrightYear);
+})();
+</script>
