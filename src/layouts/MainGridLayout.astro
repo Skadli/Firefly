@@ -368,6 +368,23 @@ const navbarWidthFull = siteConfig.navbar.widthFull ?? false;
             if (!container) return;
             // 防止重复初始化
             if (container.querySelector('.vh-paopao')) return;
+            // 容器不可见时（display:none），尺寸为0，延迟到可见后再初始化
+            if (container.offsetWidth === 0 || container.offsetHeight === 0) {
+                var retryCount = 0;
+                var maxRetries = 100; // 最多重试约10秒
+                var retryTimer = setInterval(function() {
+                    retryCount++;
+                    if (retryCount >= maxRetries) {
+                        clearInterval(retryTimer);
+                        return;
+                    }
+                    if (container.offsetWidth > 0 && container.offsetHeight > 0) {
+                        clearInterval(retryTimer);
+                        initPaopao();
+                    }
+                }, 100);
+                return;
+            }
             import('/assets/js/vhPaopao.js').then(function(module) {
                 // 再次检查，防止异步竞态
                 if (container.querySelector('.vh-paopao')) return;
