@@ -547,6 +547,18 @@ export type BackgroundWallpaperConfig = {
 						mobile: boolean; // 移动端是否启用波浪动画效果
 				  }; // 是否启用波浪动画效果，支持布尔值或分别设置桌面端和移动端
 		};
+		paopao?: {
+			enable:
+				| boolean
+				| {
+						desktop: boolean; // 桌面端是否启用泡泡粒子效果
+						mobile: boolean; // 移动端是否启用泡泡粒子效果
+				  }; // 是否启用泡泡粒子效果，支持布尔值或分别设置桌面端和移动端
+			radius?: number; // 气泡半径，默认 10
+			density?: number; // 气泡密度，默认 0.3
+			clearOffset?: number; // 透明度衰减偏移，默认 0.2
+			color?: string; // 气泡颜色，"random" 或 CSS 颜色值
+		};
 	};
 	// 全屏透明覆盖模式特有配置
 	overlay?: {

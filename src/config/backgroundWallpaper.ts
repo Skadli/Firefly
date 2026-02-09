@@ -8,9 +8,17 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 	// 背景图片配置
 	src: {
 		// 桌面背景图片
-		desktop: "/assets/images/d1.webp",
+		desktop: [
+			"/assets/images/background1.jpg",
+			"/assets/images/background5.jpg",
+			"/assets/images/background7.jpg",
+		],
 		// 移动背景图片
-		mobile: "/assets/images/m1.webp",
+		mobile: [
+			"/assets/images/background1.jpg",
+			"/assets/images/background5.jpg",
+			"/assets/images/background7.jpg",
+		],
 	},
 	// Banner模式特有配置
 	banner: {
@@ -24,17 +32,17 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否启用主页横幅文字
 			enable: true,
 			// 主页横幅主标题
-			title: "Lovely firefly!",
+			title: "Lovely meBlog!",
 			// 主页横幅主标题字体大小
 			titleSize: "3.8rem",
 			// 主页横幅副标题
 			subtitle: [
-				"In Reddened Chrysalis, I Once Rest",
-				"From Shattered Sky, I Free Fall",
-				"Amidst Silenced Stars, I Deep Sleep",
-				"Upon Lighted Fyrefly, I Soon Gaze",
-				"From Undreamt Night, I Thence Shine",
-				"In Finalized Morrow, I Full Bloom",
+				"绯红茧中，我曾安憩",
+				"破碎穹苍，任我坠落",
+				"沉寂星间，我亦深眠",
+				"流萤微光，引我凝视",
+				"无梦长夜，由此闪耀",
+				"终焉破晓，尽情盛放",
 			],
 			// 主页横幅副标题字体大小
 			subtitleSize: "1.5rem",
@@ -52,26 +60,26 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			},
 		},
 		// 图片来源
-		credit: {
-			enable: {
-				// 桌面端显示横幅图片来源文本
-				desktop: true,
-				// 移动端显示横幅图片来源文本
-				mobile: true,
-			},
-			text: {
-				// 桌面端要显示的来源文本
-				desktop: "Pixiv - 晚晚喵",
-				// 移动端要显示的来源文本
-				mobile: "Pixiv - KiraraShss",
-			},
-			url: {
-				// 桌面端原始艺术品或艺术家页面的 URL 链接
-				desktop: "https://www.pixiv.net/artworks/135490046",
-				// 移动端原始艺术品或艺术家页面的 URL 链接
-				mobile: "https://www.pixiv.net/users/42715864",
-			},
-		},
+		// credit: {
+		// 	enable: {
+		// 		// 桌面端显示横幅图片来源文本
+		// 		desktop: true,
+		// 		// 移动端显示横幅图片来源文本
+		// 		mobile: true,
+		// 	},
+		// 	text: {
+		// 		// 桌面端要显示的来源文本
+		// 		desktop: "Pixiv - 晚晚喵",
+		// 		// 移动端要显示的来源文本
+		// 		mobile: "Pixiv - KiraraShss",
+		// 	},
+		// 	url: {
+		// 		// 桌面端原始艺术品或艺术家页面的 URL 链接
+		// 		desktop: "https://www.pixiv.net/artworks/135490046",
+		// 		// 移动端原始艺术品或艺术家页面的 URL 链接
+		// 		mobile: "https://www.pixiv.net/users/42715864",
+		// 	},
+		// },
 		// 横幅导航栏配置
 		navbar: {
 			// 横幅导航栏透明模式："semi" 半透明，"full" 完全透明，"semifull" 动态透明
@@ -79,16 +87,33 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否开启毛玻璃模糊效果，开启可能会影响页面性能，如果不开启则是半透明，请根据自己的喜好开启
 			enableBlur: true,
 			// 毛玻璃模糊度
-			blur: 3,
+			blur: 1,
 		},
 		// 波浪动画效果配置，开启可能会影响页面性能，请根据自己的喜好开启
 		waves: {
 			enable: {
 				// 桌面端是否启用波浪动画效果
-				desktop: true,
+				desktop: false,
 				// 移动端是否启用波浪动画效果
+				mobile: false,
+			},
+		},
+		// 泡泡粒子效果配置，开启可能会影响页面性能，请根据自己的喜好开启
+		paopao: {
+			enable: {
+				// 桌面端是否启用泡泡粒子效果
+				desktop: true,
+				// 移动端是否启用泡泡粒子效果
 				mobile: true,
 			},
+			// 气泡半径
+			radius: 12,
+			// 气泡密度
+			density: 0.16,
+			// 透明度衰减偏移
+			clearOffset: 0.99,
+			// 气泡颜色，"random" 或 CSS 颜色值
+			color: "rgba(255,255,255,.4)",
 		},
 	},
 	// 全屏透明覆盖模式特有配置

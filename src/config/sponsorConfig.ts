@@ -36,19 +36,19 @@ export const sponsorConfig: SponsorConfig = {
 			description: "使用 微信 扫码赞助",
 			enabled: true,
 		},
-		{
-			name: "ko-fi",
-			icon: "simple-icons:kofi",
-			qrCode: "",
-			link: "https://ko-fi.com/cuteleaf",
-			description: "Buy a Coffee for Firefly",
-			enabled: true,
-		},
+		// {
+		// 	name: "ko-fi",
+		// 	icon: "simple-icons:kofi",
+		// 	qrCode: "",
+		// 	link: "https://ko-fi.com/cuteleaf",
+		// 	description: "Buy a Coffee for Firefly",
+		// 	enabled: true,
+		// },
 		{
 			name: "爱发电",
 			icon: "simple-icons:afdian",
 			qrCode: "",
-			link: "https://afdian.com/a/cuteleaf",
+			link: "https://afdian.com/a/skadcc",
 			description: "通过 爱发电 进行赞助",
 			enabled: true,
 		},
@@ -58,7 +58,7 @@ export const sponsorConfig: SponsorConfig = {
 	sponsors: [
 		// 示例：已实名赞助者
 		{
-			name: "夏叶",
+			name: "匿名用户",
 			amount: "¥50",
 			date: "2025-10-01",
 			message: "感谢分享！",

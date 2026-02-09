@@ -5,7 +5,7 @@ export const fontConfig = {
 	// 是否预加载字体文件
 	preload: true,
 	// 当前选择的字体，支持多个字体组合
-	selected: ["system"],
+	selected: ["lxgw-wenkai", "lato"],
 
 	// 字体列表
 	fonts: {
@@ -27,43 +27,43 @@ export const fontConfig = {
 			display: "swap" as const,
 		},
 
-		// Google Fonts - Inter
-		inter: {
-			id: "inter",
-			name: "Inter",
-			src: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
-			family: "Inter",
-			display: "swap" as const,
+		// --- 方案一：霞鹜文楷 (屏幕阅读优化版) ---
+		"lxgw-wenkai": {
+			id: "lxgw-wenkai",
+			name: "LXGW WenKai Screen",
+			// 使用 npm CDN 加载，速度通常比 Google Fonts 快
+			src: "https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css",
+			family: "LXGW WenKai Screen",
+			display: "swap",
 		},
 
-		// 小米字体 - MiSans Normal
-		"misans-normal": {
-			id: "misans-normal",
-			name: "MiSans Normal",
-			src: "https://unpkg.com/misans@4.1.0/lib/Normal/MiSans-Normal.min.css",
-			family: "MiSans",
-			weight: 400,
-			display: "swap" as const,
+		// --- 方案二：思源宋体 (Google Fonts) ---
+		"noto-serif-sc": {
+			id: "noto-serif-sc",
+			name: "Noto Serif SC",
+			src: "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap",
+			family: "Noto Serif SC",
+			display: "swap",
 		},
 
-		// 小米字体 - MiSans Semibold
-		"misans-semibold": {
-			id: "misans-semibold",
-			name: "MiSans Semibold",
-			src: "https://unpkg.com/misans@4.1.0/lib/Normal/MiSans-Semibold.min.css",
-			family: "MiSans",
-			weight: 600,
-			display: "swap" as const,
+		// --- 方案三：Lato (非常优雅的英文字体，建议搭配中文字体使用) ---
+		lato: {
+			id: "lato",
+			name: "Lato",
+			src: "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap",
+			family: "Lato",
+			display: "swap",
 		},
 	},
 
 	// 全局字体回退
 	fallback: [
-		"system-ui",
+		"LXGW WenKai Screen", // 如果你选了方案一，把这个放在最前面
 		"-apple-system",
 		"BlinkMacSystemFont",
-		"Segoe UI",
-		"Roboto",
+		"PingFang SC", // 苹果默认中文字体
+		"Hiragino Sans GB",
+		"Microsoft YaHei", // Windows 默认
 		"sans-serif",
 	],
 };

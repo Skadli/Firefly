@@ -68,6 +68,21 @@ const wavesEnabledOnDesktop =
 const wavesEnabledOnMobile =
 	typeof wavesConfig === "object" ? wavesConfig.mobile : wavesConfig;
 
+// 检查是否启用泡泡粒子效果
+const paopaoConfig = backgroundWallpaper.banner?.paopao?.enable;
+// 处理分设备控制的泡泡粒子效果
+const paopaoEnabledOnDesktop =
+	typeof paopaoConfig === "object" ? paopaoConfig.desktop : paopaoConfig;
+const paopaoEnabledOnMobile =
+	typeof paopaoConfig === "object" ? paopaoConfig.mobile : paopaoConfig;
+// 泡泡粒子效果参数
+const paopaoOptions = {
+	radius: backgroundWallpaper.banner?.paopao?.radius ?? 10,
+	density: backgroundWallpaper.banner?.paopao?.density ?? 0.3,
+	clearOffset: backgroundWallpaper.banner?.paopao?.clearOffset ?? 0.2,
+	color: backgroundWallpaper.banner?.paopao?.color ?? "random",
+};
+
 // 处理分设备控制的横幅信贷显示
 const creditEnableConfig = backgroundWallpaper.banner?.credit?.enable;
 const creditEnabledOnDesktop =
@@ -339,6 +354,33 @@ const navbarWidthFull = siteConfig.navbar.widthFull ?? false;
             </g>
         </svg>
     </div>
+    ) : null}
+
+    <!-- Paopao bubble particle effect -->
+    {(paopaoEnabledOnDesktop || paopaoEnabledOnMobile) ? (
+    <div id="paopao-container" class={`absolute inset-0 z-10 pointer-events-none
+        ${!paopaoEnabledOnMobile ? 'hidden' : ''} ${!paopaoEnabledOnDesktop ? 'md:hidden' : ''} ${paopaoEnabledOnDesktop ? 'md:block' : ''}`}
+        style="position: absolute;">
+    </div>
+    <script is:inline define:vars={{ paopaoOptions }}>
+        function initPaopao() {
+            const container = document.getElementById('paopao-container');
+            if (!container) return;
+            // 防止重复初始化
+            if (container.querySelector('.vh-paopao')) return;
+            import('/assets/js/vhPaopao.js').then(function(module) {
+                // 再次检查，防止异步竞态
+                if (container.querySelector('.vh-paopao')) return;
+                module.default(container, paopaoOptions);
+            });
+        }
+        // 初始加载
+        initPaopao();
+        // Swup 页面切换后重新初始化
+        document.addEventListener('swup:page:view', function() {
+            initPaopao();
+        });
+    </script>
     ) : null}
 </div>
 )}

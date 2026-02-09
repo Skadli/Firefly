@@ -1,5 +1,13 @@
 import { backgroundWallpaper } from "../config";
 
+// 从字符串或字符串数组中随机选择一个值
+function pickRandom(src: string | string[] | undefined): string {
+	if (!src) return "";
+	if (typeof src === "string") return src;
+	if (src.length === 0) return "";
+	return src[Math.floor(Math.random() * src.length)];
+}
+
 // 背景图片处理工具函数
 export const getBackgroundImages = () => {
 	const bgSrc = backgroundWallpaper.src;
@@ -14,15 +22,15 @@ export const getBackgroundImages = () => {
 			desktop?: string | string[];
 			mobile?: string | string[];
 		};
-		return {
-			desktop: srcObj.desktop || srcObj.mobile || "",
-			mobile: srcObj.mobile || srcObj.desktop || "",
-		};
+		const desktop = pickRandom(srcObj.desktop) || pickRandom(srcObj.mobile);
+		const mobile = pickRandom(srcObj.mobile) || pickRandom(srcObj.desktop);
+		return { desktop, mobile };
 	}
-	// 如果是字符串，同时用于桌面端和移动端
+	// 如果是字符串或字符串数组，同时用于桌面端和移动端
+	const resolved = pickRandom(bgSrc as string | string[]);
 	return {
-		desktop: bgSrc,
-		mobile: bgSrc,
+		desktop: resolved,
+		mobile: resolved,
 	};
 };
 
@@ -44,19 +52,10 @@ export const isBannerSrcObject = (
 // 获取默认背景图片
 export const getDefaultBackground = (): string => {
 	const src = backgroundWallpaper.src;
-	if (typeof src === "string") {
-		return src;
-	}
-	if (src && typeof src === "object" && !Array.isArray(src)) {
-		// 优先使用desktop，如果没有则使用mobile
-		const desktopSrc = src.desktop;
-		const mobileSrc = src.mobile;
-		if (typeof desktopSrc === "string") {
-			return desktopSrc;
-		}
-		if (typeof mobileSrc === "string") {
-			return mobileSrc;
-		}
+	if (typeof src === "string") return src;
+	if (Array.isArray(src)) return pickRandom(src);
+	if (src && typeof src === "object") {
+		return pickRandom(src.desktop) || pickRandom(src.mobile);
 	}
 	return "";
 };
