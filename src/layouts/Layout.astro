@@ -793,12 +793,6 @@ function disableAnimation() {
         }
       }
 
-      // increase the page height during page transition to prevent the scrolling animation from jumping
-      const heightExtend = document.getElementById("page-height-extend");
-      if (heightExtend) {
-        heightExtend.classList.remove("hidden");
-      }
-
       // Hide the TOC while scrolling back to top
       let toc = document.getElementById("toc-wrapper");
       if (toc) {
@@ -809,12 +803,6 @@ function disableAnimation() {
       // 更新网格列数和侧边栏组件可见性
       updateMainGridCols();
       updateSidebarComponentsVisibility();
-
-      // hide the temp high element when the transition is done
-      const heightExtend = document.getElementById("page-height-extend");
-      if (heightExtend) {
-        heightExtend.classList.remove("hidden");
-      }
 
       // 确保页面滚动到顶部，使用平滑滚动避免侧边栏闪烁
       window.scrollTo({
@@ -874,11 +862,6 @@ function disableAnimation() {
     });
     window.swup.hooks.on("visit:end", (_visit: { to: { url: string } }) => {
       setTimeout(() => {
-        const heightExtend = document.getElementById("page-height-extend");
-        if (heightExtend) {
-          heightExtend.classList.add("hidden");
-        }
-
         // Just make the transition looks better
         const toc = document.getElementById("toc-wrapper");
         if (toc) {
