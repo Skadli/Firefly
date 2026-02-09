@@ -34,7 +34,7 @@ export const fontConfig = {
 			// 使用 npm CDN 加载，速度通常比 Google Fonts 快
 			src: "https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css",
 			family: "LXGW WenKai Screen",
-			display: "swap",
+			display: "swap" as const,
 		},
 
 		// --- 方案二：思源宋体 (Google Fonts) ---
@@ -43,7 +43,7 @@ export const fontConfig = {
 			name: "Noto Serif SC",
 			src: "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap",
 			family: "Noto Serif SC",
-			display: "swap",
+			display: "swap" as const,
 		},
 
 		// --- 方案三：Lato (非常优雅的英文字体，建议搭配中文字体使用) ---
@@ -52,7 +52,7 @@ export const fontConfig = {
 			name: "Lato",
 			src: "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap",
 			family: "Lato",
-			display: "swap",
+			display: "swap" as const,
 		},
 	},
 
