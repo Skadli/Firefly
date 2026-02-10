@@ -37,4 +37,4 @@ cache/
 package/
 .obsidian/.claude/
 
-.claude/
+.claude/settings.json
