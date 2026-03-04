@@ -1,14 +1,14 @@
 import { backgroundWallpaper } from "../config";
 
-// 从字符串或字符串数组中随机选择一个值
-function pickRandom(src: string | string[] | undefined): string {
-	if (!src) return "";
-	if (typeof src === "string") return src;
-	if (src.length === 0) return "";
-	return src[Math.floor(Math.random() * src.length)];
-}
+// 将单个值或数组统一为数组
+const toArray = (src: string | string[] | undefined): string[] => {
+	if (!src) return [];
+	if (Array.isArray(src)) return src;
+	return [src];
+};
 
 // 背景图片处理工具函数
+// 返回所有配置的图片（用于构建时渲染所有图片）
 export const getBackgroundImages = () => {
 	const bgSrc = backgroundWallpaper.src;
 
@@ -22,15 +22,20 @@ export const getBackgroundImages = () => {
 			desktop?: string | string[];
 			mobile?: string | string[];
 		};
-		const desktop = pickRandom(srcObj.desktop) || pickRandom(srcObj.mobile);
-		const mobile = pickRandom(srcObj.mobile) || pickRandom(srcObj.desktop);
-		return { desktop, mobile };
+		const desktopImages = toArray(srcObj.desktop);
+		const mobileImages = toArray(srcObj.mobile);
+		return {
+			desktop: desktopImages.length > 0 ? desktopImages : mobileImages,
+			mobile: mobileImages.length > 0 ? mobileImages : desktopImages,
+			isMultiple: desktopImages.length > 1 || mobileImages.length > 1,
+		};
 	}
-	// 如果是字符串或字符串数组，同时用于桌面端和移动端
-	const resolved = pickRandom(bgSrc as string | string[]);
+	// 如果是字符串或数组，同时用于桌面端和移动端
+	const images = toArray(bgSrc as string | string[]);
 	return {
-		desktop: resolved,
-		mobile: resolved,
+		desktop: images,
+		mobile: images,
+		isMultiple: images.length > 1,
 	};
 };
 
@@ -49,15 +54,10 @@ export const isBannerSrcObject = (
 	);
 };
 
-// 获取默认背景图片
+// 获取默认背景图片（返回第一张，用于 SEO 等场景）
 export const getDefaultBackground = (): string => {
-	const src = backgroundWallpaper.src;
-	if (typeof src === "string") return src;
-	if (Array.isArray(src)) return pickRandom(src);
-	if (src && typeof src === "object") {
-		return pickRandom(src.desktop) || pickRandom(src.mobile);
-	}
-	return "";
+	const images = getBackgroundImages();
+	return images.desktop[0] || images.mobile[0] || "";
 };
 
 // 检查是否为首页

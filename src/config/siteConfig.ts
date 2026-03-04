@@ -32,6 +32,11 @@ export const siteConfig: SiteConfig = {
 		defaultMode: "system",
 	},
 
+	// 页面整体宽度（单位：rem）
+	// 数值越大可以让页面内容区域更宽
+	// 在使用单侧栏边栏时，建议调低一些宽度以获得更好的视觉效果。
+	pageWidth: 100,
+
 	// 网站Card样式配置
 	card: {
 		// 是否开启卡片边框和阴影，开启后让网站更有立体感
@@ -42,7 +47,7 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		{
 			// 图标文件路径
-			src: "/assets/images/favicon.ico",
+			src: "/favicon/favicon.ico",
 			// 可选，指定主题 'light' | 'dark'
 			// theme: "light",
 			// 可选，图标大小
@@ -55,8 +60,9 @@ export const siteConfig: SiteConfig = {
 		// 导航栏Logo
 		// 支持三种类型：
 		// 1. Astro图标库: { type: "icon", value: "material-symbols:home-pin-outline" }
-		// 2. 本地图片: { type: "image", value: "/assets/images/logo.webp", alt: "Firefly Logo" }
-		// 3. 网络图片: { type: "url", value: "https://example.com/logo.png", alt: "Firefly Logo" }
+		// 2. 本地图片（public目录，不优化）: { type: "image", value: "/assets/images/logo.webp", alt: "Logo" }
+		// 3. 本地图片（src目录，自动优化但会增加构建时间，推荐）: { type: "image", value: "assets/images/logo.webp", alt: "Logo" }
+		// 4. 网络图片: { type: "url", value: "https://example.com/logo.png", alt: "Logo" }
 		logo: {
 			type: "image",
 			value: "/assets/images/logo.png",
@@ -99,6 +105,10 @@ export const siteConfig: SiteConfig = {
 	bangumi: {
 		// Bangumi用户ID
 		userId: "1143164",
+		// 条目类型排序，数组中的类型将按顺序优先展示
+		// 可选值: "anime" | "book" | "music" | "game" | "real" (暂不支持"real"类型)
+		// 未列出的类型将按默认顺序排在后面
+		categoryOrder: ["anime", "book", "music", "game"],
 	},
 
 	// 页面开关配置 - 控制特定页面的访问权限，设为false会返回404
@@ -110,7 +120,12 @@ export const siteConfig: SiteConfig = {
 		guestbook: true,
 		// 番组计划页面开关，含追番、游戏、书籍和音乐，dev调试时只获取一页数据，build才会获取全部数据
 		bangumi: false,
+		// 相册页面开关
+		gallery: true,
 	},
+
+	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航
+	categoryBar: true,
 
 	// 文章列表布局配置
 	postListLayout: {
@@ -122,10 +137,8 @@ export const siteConfig: SiteConfig = {
 		grid: {
 			// 是否开启瀑布流布局，同时有封面图和无封面图的混合文章推荐开启
 			masonry: false,
-			// 网格模式列数：2 或 3
-			// 2列是默认模式，在任何侧边栏配置下均可生效
-			// 3列模式仅在单侧边栏（或无侧边栏）时生效，
-			columns: 3,
+			// 网格模式卡片最小宽度(px)，浏览器根据容器宽度自动计算列数，默认 280
+			columnWidth: 320,
 		},
 	},
 
@@ -141,6 +154,25 @@ export const siteConfig: SiteConfig = {
 		googleAnalyticsId: "",
 		// Microsoft Clarity ID
 		microsoftClarityId: "",
+	},
+
+	// 图像优化及响应式配置
+	// 图像优化压缩只保留avif或webp
+	// 响应式图像是为在不同设备上提高性能而调整的图像。这些图像可以调整大小以适应其容器，并且可以根据访问者的屏幕尺寸和分辨率以不同的大小提供。
+	// Astro 仅能对 src 目录下的图像进行优化，src 目录下的图像越多，构建时间会越长
+	// Astro 图像文档 https://docs.astro.build/zh-cn/guides/images/
+	imageOptimization: {
+		// 输出图片格式
+		// - "avif": 仅输出 AVIF 格式（最新技术，最小体积，目前兼容性较低）
+		// - "webp": 仅输出 WebP 格式（体积适中，兼容性好）
+		// - "both": 同时输出 AVIF 和 WebP（推荐，浏览器自动选择最佳格式）
+		formats: "webp",
+		// 图片压缩质量 (1-100)，值越低体积越小但质量越差，推荐 70-85
+		quality: 85,
+		// 为特定域名的图片添加 referrerpolicy="no-referrer" 属性
+		// 支持通配符 *，例如：["i0.hdslb.com", "*.bilibili.com"]
+		// 可解决指定域名图片加载时的 403 问题（如防盗链图片）
+		noReferrerDomains: [],
 	},
 
 	// 字体配置

@@ -8,7 +8,7 @@
   --primary: oklch(0.70 0.14 var(--hue))
   --page-bg: oklch(0.95 0.01 var(--hue))
   --card-bg: white
-  --card-bg-transparent: rgba(255, 255, 255, 0.6)
+  --card-bg-transparent: unquote("rgb(255 255 255 / var(--card-transparent-opacity, 0.6))")
   
   --btn-content: oklch(0.55 0.12 var(--hue))
   --btn-regular-bg: oklch(0.95 0.025 var(--hue))
@@ -83,7 +83,7 @@
   --primary: oklch(0.75 0.14 var(--hue))
   --page-bg: oklch(0.16 0.014 var(--hue))
   --card-bg: oklch(0.23 0.015 var(--hue))
-  --card-bg-transparent: rgba(23, 23, 23, 0.6)
+  --card-bg-transparent: unquote("rgb(23 23 23 / var(--card-transparent-opacity, 0.6))")
   
   --btn-content: oklch(0.75 0.1 var(--hue))
   --btn-regular-bg: oklch(0.33 0.035 var(--hue))
@@ -162,18 +162,18 @@
   --ease-sharp: cubic-bezier(0.4, 0, 0.6, 1)
   
   /* 动画时长 */
-  --duration-fast: 150ms
-  --duration-normal: 200ms
-  --duration-medium: 300ms
-  --duration-slow: 400ms
-  --duration-slower: 500ms
+  --duration-fast: 100ms
+  --duration-normal: 150ms
+  --duration-medium: 200ms
+  --duration-slow: 250ms
+  --duration-slower: 300ms
   
   /* 动画延迟 */
   --delay-none: 0ms
-  --delay-short: 50ms
-  --delay-medium: 100ms
-  --delay-long: 150ms
-  --delay-longer: 200ms
+  --delay-short: 30ms
+  --delay-medium: 60ms
+  --delay-long: 90ms
+  --delay-longer: 120ms
 
 /* ===== 间距变量 ===== */
 :root
