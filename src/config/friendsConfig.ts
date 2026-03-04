@@ -20,10 +20,10 @@ export const friendsPageConfig: FriendsPageConfig = {
 // 友链配置
 export const friendsConfig: FriendLink[] = [
 	{
-		title: "meapi",
+		title: "meBlog",
 		imgurl: "https://r2.690990.xyz/logo.jpeg",
-		desc: "飞萤之火自无梦的长夜亮起，绽放在终竟的明天。",
-		siteurl: "https://api.mechat.top",
+		desc: "在黑夜与白昼的交界，记录微不足道的光。",
+		siteurl: "https://blog.690990.xyz",
 		tags: ["Blog"],
 		weight: 10, // 权重，数字越大排序越靠前
 		enabled: true, // 是否启用
