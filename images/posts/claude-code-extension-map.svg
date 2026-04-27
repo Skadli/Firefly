@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 920" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="180" y1="40" x2="1240" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08131F"/>
+      <stop offset="1" stop-color="#102030"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#59E6FF"/>
+      <stop offset="1" stop-color="#1F9DCC"/>
+    </linearGradient>
+    <linearGradient id="lime" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#CFFF72"/>
+      <stop offset="1" stop-color="#84DA2D"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFC17A"/>
+      <stop offset="1" stop-color="#F17748"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1440" height="920" rx="28" fill="url(#bg)"/>
+  <g opacity="0.28" stroke="#254054">
+    <path d="M0 134H1440"/>
+    <path d="M0 268H1440"/>
+    <path d="M0 402H1440"/>
+    <path d="M0 536H1440"/>
+    <path d="M0 670H1440"/>
+    <path d="M0 804H1440"/>
+    <path d="M180 0V920"/>
+    <path d="M360 0V920"/>
+    <path d="M540 0V920"/>
+    <path d="M720 0V920"/>
+    <path d="M900 0V920"/>
+    <path d="M1080 0V920"/>
+    <path d="M1260 0V920"/>
+  </g>
+
+  <text x="96" y="104" fill="#E8F6FF" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="34" font-weight="700">Claude Code extension map</text>
+  <text x="96" y="148" fill="#93A9B9" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">Facts live in CLAUDE.md. Workflows live in Skills. External systems live in MCP. Deterministic guardrails live in Hooks.</text>
+
+  <rect x="560" y="346" width="320" height="180" rx="28" fill="#0D1D2B" stroke="#385366" stroke-width="2"/>
+  <text x="648" y="414" fill="#E6F4FD" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="32" font-weight="700">SESSION</text>
+  <text x="614" y="454" fill="#9BB2C1" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">the active working context</text>
+  <text x="608" y="492" fill="#9BB2C1" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">prompt + tool state + repo view</text>
+
+  <g>
+    <rect x="98" y="244" width="316" height="184" rx="24" fill="#112130" stroke="#3C627B" stroke-width="2"/>
+    <text x="134" y="302" fill="#DFF5FF" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="28" font-weight="700">CLAUDE.md</text>
+    <text x="134" y="340" fill="#9FB7C6" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">project facts</text>
+    <text x="134" y="372" fill="#9FB7C6" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">build and test commands</text>
+    <text x="134" y="404" fill="#9FB7C6" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">architecture decisions</text>
+  </g>
+
+  <g>
+    <rect x="1022" y="232" width="318" height="210" rx="24" fill="#152617" stroke="#4C7131" stroke-width="2"/>
+    <text x="1058" y="290" fill="#ECFFD8" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="28" font-weight="700">SKILLS</text>
+    <text x="1058" y="328" fill="#B9D3A5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">task playbooks</text>
+    <text x="1058" y="360" fill="#B9D3A5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">lazy-loaded references</text>
+    <text x="1058" y="392" fill="#B9D3A5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">slash commands and agent skills</text>
+  </g>
+
+  <g>
+    <rect x="100" y="566" width="314" height="200" rx="24" fill="#2B2014" stroke="#855632" stroke-width="2"/>
+    <text x="136" y="624" fill="#FFE7CA" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="28" font-weight="700">HOOKS</text>
+    <text x="136" y="662" fill="#D8BA97" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">pre and post tool automation</text>
+    <text x="136" y="694" fill="#D8BA97" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">command, prompt, agent, http</text>
+    <text x="136" y="726" fill="#D8BA97" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">and mcp_tool handlers</text>
+  </g>
+
+  <g>
+    <rect x="1024" y="558" width="316" height="210" rx="24" fill="#101E2B" stroke="#45647A" stroke-width="2"/>
+    <text x="1060" y="616" fill="#DFF1FD" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="28" font-weight="700">MCP</text>
+    <text x="1060" y="654" fill="#A3BBC9" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">tools + resources + prompts</text>
+    <text x="1060" y="686" fill="#A3BBC9" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">GitHub, browser, docs, DB, CI</text>
+    <text x="1060" y="718" fill="#A3BBC9" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">shared via .mcp.json</text>
+  </g>
+
+  <g>
+    <rect x="514" y="690" width="410" height="128" rx="24" fill="#0F1822" stroke="#395166" stroke-width="2"/>
+    <text x="640" y="742" fill="#E3F3FD" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="28" font-weight="700">PLUGINS</text>
+    <text x="570" y="780" fill="#9AB0C0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">package skills, hooks, MCP and agents for reuse</text>
+  </g>
+
+  <g stroke-width="5" stroke-linecap="round">
+    <path d="M414 336H560" stroke="url(#cyan)"/>
+    <path d="M880 394H1022" stroke="url(#lime)"/>
+    <path d="M414 648H560" stroke="url(#orange)"/>
+    <path d="M880 648H1024" stroke="url(#cyan)"/>
+    <path d="M720 526V690" stroke="#5D7384" stroke-dasharray="10 10"/>
+  </g>
+
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18" fill="#BFD4E1">
+    <text x="108" y="858">Decision rule: facts -&gt; CLAUDE.md | repeatable workflow -&gt; Skill | external system -&gt; MCP | must-always-run -&gt; Hook</text>
+  </g>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 920" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="60" x2="1300" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07121D"/>
+      <stop offset="1" stop-color="#0E1F2E"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#59E6FF"/>
+      <stop offset="1" stop-color="#1898C6"/>
+    </linearGradient>
+    <linearGradient id="lime" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#D3FF7A"/>
+      <stop offset="1" stop-color="#7CD82D"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFC17A"/>
+      <stop offset="1" stop-color="#EF7548"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1440" height="920" rx="28" fill="url(#bg)"/>
+  <text x="94" y="104" fill="#EBF7FF" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="34" font-weight="700">How Claude Code keeps context under control</text>
+  <text x="94" y="148" fill="#95AAB9" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">Skills and MCP are both cheap at rest and expensive only when fully expanded.</text>
+
+  <g>
+    <rect x="92" y="236" width="250" height="156" rx="24" fill="#0D1E2C" stroke="#385266" stroke-width="2"/>
+    <text x="134" y="300" fill="#E3F4FE" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="28" font-weight="700">SESSION START</text>
+    <text x="134" y="338" fill="#A0B6C5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">repo + prompt + settings</text>
+  </g>
+
+  <g>
+    <rect x="450" y="190" width="420" height="246" rx="28" fill="#122534" stroke="#3F6882" stroke-width="2"/>
+    <text x="492" y="252" fill="#DFF5FF" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="28" font-weight="700">SKILLS AT REST</text>
+    <text x="492" y="294" fill="#A8C0CF" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">name + description + lightweight routing metadata</text>
+    <rect x="492" y="334" width="336" height="14" rx="7" fill="#20384A"/>
+    <rect x="492" y="334" width="148" height="14" rx="7" fill="url(#cyan)"/>
+    <text x="492" y="378" fill="#A8C0CF" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">full SKILL.md and references load only when invoked</text>
+  </g>
+
+  <g>
+    <rect x="958" y="190" width="382" height="246" rx="28" fill="#152617" stroke="#4C7131" stroke-width="2"/>
+    <text x="1000" y="252" fill="#ECFFD9" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="28" font-weight="700">MCP AT REST</text>
+    <text x="1000" y="294" fill="#B7D1A4" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">server name + tool summaries</text>
+    <rect x="1000" y="334" width="286" height="14" rx="7" fill="#273B1D"/>
+    <rect x="1000" y="334" width="124" height="14" rx="7" fill="url(#lime)"/>
+    <text x="1000" y="378" fill="#B7D1A4" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">full tool schema resolves on demand via Tool Search</text>
+  </g>
+
+  <g>
+    <rect x="452" y="548" width="420" height="220" rx="28" fill="#102030" stroke="#43677C" stroke-width="2"/>
+    <text x="494" y="612" fill="#E4F4FD" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="28" font-weight="700">EXPANDED SKILL</text>
+    <text x="494" y="654" fill="#A5BCCE" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">instructions + examples + templates + optional shell snippets</text>
+    <text x="494" y="696" fill="#A5BCCE" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">best for repeatable playbooks, audits, release checks</text>
+  </g>
+
+  <g>
+    <rect x="958" y="548" width="382" height="220" rx="28" fill="#2A2015" stroke="#875733" stroke-width="2"/>
+    <text x="1000" y="612" fill="#FFE7CB" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="28" font-weight="700">EXPANDED TOOL</text>
+    <text x="1000" y="654" fill="#DAB998" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">full input schema + resources + prompts + live results</text>
+    <text x="1000" y="696" fill="#DAB998" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">best for GitHub, browser, logs, docs, databases</text>
+  </g>
+
+  <g stroke-width="5" stroke-linecap="round">
+    <path d="M342 314H450" stroke="url(#cyan)"/>
+    <path d="M870 314H958" stroke="url(#lime)"/>
+    <path d="M662 436V548" stroke="#4C667A" stroke-dasharray="10 10"/>
+    <path d="M1150 436V548" stroke="#73563D" stroke-dasharray="10 10"/>
+  </g>
+
+  <g>
+    <rect x="92" y="548" width="250" height="220" rx="24" fill="#0E1822" stroke="#334B5F" stroke-width="2"/>
+    <text x="132" y="610" fill="#DDEFFD" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="28" font-weight="700">RULE OF THUMB</text>
+    <text x="132" y="652" fill="#9EB5C5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">If the problem is</text>
+    <text x="132" y="686" fill="#9EB5C5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">repeatable and local,</text>
+    <text x="132" y="720" fill="#9EB5C5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">write a Skill.</text>
+    <text x="132" y="754" fill="#9EB5C5" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">If it lives outside the repo, use MCP.</text>
+  </g>
+
+  <text x="92" y="846" fill="#BDD1DF" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18">Proxy note: when you use third-party ANTHROPIC_BASE_URL, confirm tool_reference passthrough before enabling MCP Tool Search manually.</text>
+</svg>
